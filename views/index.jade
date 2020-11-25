@@ -1,0 +1,53 @@
+extends layout
+block content
+  h1= "rectangles"
+  p create new rectangle
+  form(method='POST' action='/insert' style={ "display": "inline"})
+    label(for='width') width:
+    input#width(type='number', name='width')
+    br
+    label(for='height') height:
+    input#height(type='number', name='height')
+    br
+    label(for='color') color:
+    input#color(type='text', name='color')
+    br
+    input(type='submit' value='insert')
+
+  p update existing triangles
+  form(method='POST' action='/update')
+    label(for='id') id:
+    input#id(type='number', name='id')
+    br
+    label(for='width') width:
+    input#width(type='number', name='width')
+    br
+    label(for='height') height:
+    input#height(type='number', name='height')
+    br
+    label(for='color') color:
+    input#color(type='text', name='color')
+    br
+    input(type='submit' value='update')
+
+  p delete existing triangles
+  form(method='POST' action='/delete')
+    label(for='id') id:
+    input#id(type='number', name='id')
+    input(type='submit' value='delete')
+
+  p reorder existing triangles
+  form(method='POST' action='/reorder')
+    select(name='attribute')
+      option(value=id) id
+      option(value=width) width
+      option(value=height) height
+    select(name='ordering')
+      option(value=desc) DESC
+      option(value=asc) ASC
+    input(type='submit' value='reorder')
+
+  each item in items
+    p id: #{item.id}  
+    div(id= item.id,style={"display":"flex","flex-direction": "row","border": "1px solid black" ,"width":  (25*item.width) + "px" , "height": (8*item.height) + "px", "background-color": item.color, "margin-bottom":'5px'}) &nbsp;
+      
