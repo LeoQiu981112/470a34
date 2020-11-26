@@ -14,39 +14,6 @@ const db = require("./models");
 db.sequelize.sync().then(() => {
   console.log("sync db.");
 });
-// update rectangle
-exports.UpdateRectangles = function(id, width, height, color,callback) {
-  var sql = "UPDATE rectangles SET "+
-  "width="+width+","+
-  "height="+height+","+
-  "color=\""+color+"\" "+
-  "WHERE (ID ="+ id+")";
-  // get a connection from the pool
-  pool.getConnection(function(err, connection) {
-    if(err) { console.log(err);callback(true);return;}
-    connection.query(sql, function(err, results) {
-      connection.release();
-      if(err) { console.log(err);callback(true);return; }
-      callback(false,results);
-    });
-  });
-};
-
-// // delete rectangle
-// exports.deleteRectangles = function(id,callback) {
-//   var sql = "DELETE FROM rectangles WHERE id="+id;
-//   // get a connection from the pool
-//   pool.getConnection(function(err, connection) {
-//     if(err) { console.log(err);callback(true);return;}
-//     connection.query(sql, function(err, results) {
-//       connection.release();
-//       if(err) { console.log(err);callback(true);return; }
-//       callback(false,results);
-//     });
-//   });
-// };
-
-
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
