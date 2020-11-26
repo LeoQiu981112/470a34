@@ -1,6 +1,6 @@
 {
   "development": {
-    "username": "root",
+    "username": "TESTUSER",
     "password": "123456",
     "database": "cmpt470",
     "host": "10.128.0.2",
@@ -10,7 +10,7 @@
     }
   },
   "test": {
-    "username": "root",
+    "username": "TESTUSER",
     "password": "123456",
     "database": "cmpt470",
     "host": "10.128.0.2",
@@ -20,7 +20,7 @@
     }
   },
   "production": {
-    "username": "root",
+    "username": "TESTUSER",
     "password": "123456",
     "database": "cmpt470",
     "host": "10.128.0.2",
